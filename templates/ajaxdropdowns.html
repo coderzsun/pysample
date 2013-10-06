@@ -1,0 +1,55 @@
+﻿<%include file="header.html"/>
+ this is a test for qeb.py and jquery ,highcharts,bootstrap 
+<p>
+	On initial load, this page has static content defined in the 'countries' dropdown.
+</p>
+
+<div class="btn-group">
+	<form name="form1" method="post" action="">
+		<input type="button" class="btn btn-default" id="btn1" value="全选">
+		<br>
+		% for city in ['北京', '上海', '广州', '天津', '重庆', '深圳', '成都', '西安', '青岛', '南京', '苏州', '大连']:
+		<input type="checkbox" name="checkbox" class="regular-checkbox" id="checkbox${loop.index}" value="${city}" /> 
+		<label for="checkbox${loop.index}">${city}</label>   
+		% if ((loop.index+1)%4 ) == 0 :
+		<br>
+		% endif
+		% endfor
+		<br>
+		<button type="button" class="btn btn-default" id="settings_btn">Submit</button>
+	</form>
+</div>
+<div id="coolstuff" style="color:#0000FF;position:relative;left:20px;" >
+<h3>This is a testing</h3>
+</div>
+<p>
+	Selecting a country will perform three ajax calls:
+	<ol>
+		<li>
+			The 'Regions from JSON' picker is populated using JSON and Javascript
+		</li>
+		<li>
+			The 'Regions from HTML' picker is populated using HTML from the server
+		</li>
+		<li>
+			A generic message is returned from the server.
+		</li>
+	</ol>
+</p>
+<hr />
+Countries: 
+<select id='countries'>
+	<option value="" selected="selected">--Pick One--</option>
+	<option value="Canada">Canada</option>
+	<option value="USA">USA</option>
+</select>
+
+Regions from JSON: <select id='regions'></select>
+
+Regions from HTML: <select id='regions2'></select>
+
+<hr>
+
+<div id="container" style="width:100%; height:400px;"></div>
+
+<%include file="footer.html"/>
