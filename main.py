@@ -1,5 +1,5 @@
 # encoding: utf-8
-# File: code.py
+# File: main.py
 # -*- coding: utf-8 -*-
 #from __future__ import division  
 import web
@@ -13,7 +13,7 @@ import json
 
 import sys
 reload(sys)
-sys.setdefaultencoding('utf-8') #设置系统编码，解决BAE上面的中文编码问题
+sys.setdefaultencoding('utf-8') #设置系统编码，解决中文编码问题
 
 
 # to avoid any path issues, "cd" to the web root.
@@ -34,13 +34,6 @@ mytemplate = mylookup.get_template("base.html")
 ##----------------------------------------------------------
 ## 两个render，一个前端，一个后台
 ##----------------------------------------------------------
-'''
-render = render_mako(
-        templates_root,
-        input_encoding='utf-8',
-        output_encoding='utf-8',
-        )
-'''
 
 render_admin = render_mako(
         templates_admin_root,
@@ -55,9 +48,9 @@ render = render_mako(  directories=[os.path.join(os.path.dirname(__file__), 'tem
 		
 urls = (
 		'/', 'index',
-		    '/ajaxdropdowns', 'ajaxdropdowns',
-    '/getregionsasjson', 'getregionsasjson',
-	'/getcheckbox','getcheckbox',
+		'/ajaxdropdowns', 'ajaxdropdowns',
+		'/getregionsasjson', 'getregionsasjson',
+		'/getcheckbox','getcheckbox',
 		'/env','env',
 		'/tp','ip' ,
 		'/hello/(.*)', 'hello',
@@ -255,7 +248,7 @@ class settings_btn:
 
 class hello:
 	def GET(self, name):
-#		web.header('content-type', 'text/html') 
+		#		web.header('content-type', 'text/html') 
 #		web.header("Content-Type", "text/plain")
 		return mytemplate.render(name=name)
 	def POST(self):
@@ -263,23 +256,21 @@ class hello:
 		web.header('Content-Type', 'application/json')
 		return json.dumps(
 				{ 
-			# Do trivial operations:
-				'txt' : ino.mod.lower(),	'dat' : "%.3f" % float(ino.num)
-				} )
+					# Do trivial operations:
+					'txt' : ino.mod.lower(),	'dat' : "%.3f" % float(ino.num)
+					} )
 
 class getregionsasjson:        
-    def POST(self):
-        try:
-            country = getAjaxArg("country")
-
-            #something here would populate this as needed
-            if country == "USA":
-                return json.dumps(["Alabama", "Georgia", "Michigan", "Texas"])       
-            if country == "Canada":
-                return json.dumps(["Newfoundland", "Manitoba", "Alberta", "France (quebec) :-)"])
-
-        except Exception, ex:
-            print ex.__str__()    
+	def POST(self):
+		try:
+				country = getAjaxArg("country")
+						#something here would populate this as needed
+				if country == "USA":
+					return json.dumps(["Alabama", "Georgia", "Michigan", "Texas"])       
+				if country == "Canada":
+					return json.dumps(["Newfoundland", "Manitoba", "Alberta", "France (quebec) :-)"])
+		except Exception, ex:
+				print ex.__str__()    
 class getcheckbox:
 	def POST(self):
 		try:
