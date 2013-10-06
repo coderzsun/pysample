@@ -1,1 +1,1 @@
-this a simple test for python.
+this a simple test for web.py and jquery ajax call page (using mako template and bootstrap).
