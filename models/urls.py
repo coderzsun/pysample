@@ -1,0 +1,50 @@
+﻿#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+from controller import Controller
+urls = (
+		'/', 'Controller.index',
+		'/ajaxdropdowns', 'Controller.ajaxdropdowns',
+		'/getregionsasjson', 'Controller.getregionsasjson',
+		'/getcheckbox','Controller.getcheckbox',
+		'/news/(.*)','Controller.News',
+		'/tcm/','Controller.Tcm',
+		'/(.*?)/(.*?)', 'Controller.Tcm'
+		'/env','env',
+		'/tp','ip' ,
+		'/hello/(.*)', 'hello',
+		'/help/faq', 'faq',
+		'/item/(\d+)', 'item',
+		'/add/(.+)','add',  
+		'/myadd','myadd',
+		r'/(\d*)', 'Index',
+		r'/view/(\d*)', 'View',
+		r'/tag/(\d+)/?(\d*)', 'TagHandler',
+		r'/search/([^\s/]+)/?(\d*)', 'SearchHandler',
+		r'/date/(\d+)/?(\d*)', 'DateHandler',
+		r'/month/(\d+)/?(\d*)', 'MonthHandler',
+		r'/year/(\d+)/?(\d*)', 'YearHandler',
+		r'/archive/(\d{4}-\d{2})/?(\d*)', 'ArchiveHandler',
+		r'/photo/?(\w*)', 'PhotoHandler',
+		r'/admin/login/?', 'Login',
+		r'/admin/logout/?', 'Logout',
+		r'/admin/?', 'AdminHandler',
+		r'/admin/menu/?', 'MenuHandler',
+		r'/admin/plist/?', 'PostListHandler',
+		r'/admin/new/?', 'New',
+		r'/admin/delete/(\d+)', 'Delete',
+		r'/admin/edit/(\d+)', 'Edit',
+		r'/admin/upload/?', 'UploadHandler',
+		r'/admin/del-attac/(\d+)', 'DelAttacHandler',
+		r'/admin/tag-manage/?', 'TagManageHandler',
+		r'/rss/(\d*)', 'RssHandler',
+		"/tasks/?", "signin",
+		"/tasks/list", "listing",
+		"/tasks/post", "post",
+		"/tasks/chgpass", "chgpass",
+		"/tasks/act", "actions",
+		"/tasks/logout", "logout",
+		"/settings_btn","settings_btn",
+		"/tasks/signup", "signup"
+		)
+		
