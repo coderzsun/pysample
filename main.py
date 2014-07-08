@@ -25,7 +25,12 @@ sys.path.append(web_root+'/models');
 sys.path.append(web_root+'/controller');
 
 #SQLite数据库名  ,Windows
-DB_SQLITE_NAME=os.path.join(web_root,"db\pytest.db")
+if sys.platform.startswith('linux'):
+  DB_SQLITE_NAME=os.path.join(web_root,"db/pytest.db")
+elif sys.platform.startswith:	
+  DB_SQLITE_NAME=os.path.join(web_root,"db\pytest.db")
+else:
+	DB_SQLITE_NAME="pytest.db"
 
 
 
