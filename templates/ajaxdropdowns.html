@@ -1,20 +1,6 @@
 ﻿<%include file="header.html"/>
  this is a test for qeb.py and jquery ,highcharts,bootstrap </br>
 
-<div class="btn-group">
-	<form name="form1" method="post" action="">
-		<br>
-		% for city in ['北京', '上海', '广州', '天津', '重庆', '深圳', '成都', '西安', '青岛', '南京', '苏州', '大连']:
-		<input type="checkbox" name="checkbox" class="regular-checkbox" id="checkbox${loop.index}" value="${city}" /> 
-		<label for="checkbox${loop.index}">${city}</label>   
-		% if ((loop.index+1)%4 ) == 0 :
-		<br>
-		% endif
-		% endfor
-		<br>
-		<button type="button" class="btn btn-default" id="settings_btn">Submit</button>
-	</form>
-</div>
 
 <p>
 	Selecting a country will perform three ajax calls:
