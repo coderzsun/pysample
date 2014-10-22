@@ -1,12 +1,8 @@
 ﻿<%include file="header.html"/>
- this is a test for qeb.py and jquery ,highcharts,bootstrap 
-<p>
-	On initial load, this page has static content defined in the 'countries' dropdown.
-</p>
+ this is a test for qeb.py and jquery ,highcharts,bootstrap </br>
 
 <div class="btn-group">
 	<form name="form1" method="post" action="">
-		<input type="button" class="btn btn-default" id="btn1" value="全选">
 		<br>
 		% for city in ['北京', '上海', '广州', '天津', '重庆', '深圳', '成都', '西安', '青岛', '南京', '苏州', '大连']:
 		<input type="checkbox" name="checkbox" class="regular-checkbox" id="checkbox${loop.index}" value="${city}" /> 
@@ -19,9 +15,7 @@
 		<button type="button" class="btn btn-default" id="settings_btn">Submit</button>
 	</form>
 </div>
-<div id="coolstuff" style="color:#0000FF;position:relative;left:20px;" >
-<h3>This is a testing</h3>
-</div>
+
 <p>
 	Selecting a country will perform three ajax calls:
 	<ol>
@@ -45,9 +39,7 @@ Countries:
 </select>
 
 Regions from JSON: <select id='regions'></select>
-
 Regions from HTML: <select id='regions2'></select>
-
 <hr>
 
 <div id="container" style="width:100%; height:400px;"></div>
